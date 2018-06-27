@@ -307,8 +307,8 @@ var store = {
     }
   },
   /**
-   * Get reference to one of the keys in the current store.
-   * @param {str} key of the store object to get a reference to
+   * Get reference or value to one of the keys in the current store.
+   * @param key of the store object to get a reference to
    * @return reference or new object (depending on `immutable` option)
    * NOTE: The store should *only* be update by calling `store.set(...)`
    *   Throws error if key does not exist in store.
@@ -423,7 +423,9 @@ function copyByValue(ref) {
 }
 
 function is_object(ref) {
-  return ref instanceof Object && ref.constructor === Object;
+  // Use logic from Underscore.js
+  // Discussion: https://stackoverflow.com/a/22482737/3038460
+  return obj === Object(obj) && !Array.isArray(a);
 }
 
 function valueHasChanged(a, b) {
