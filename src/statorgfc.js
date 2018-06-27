@@ -360,7 +360,7 @@ function copyByValue(ref) {
 function is_object(ref) {
   // Use logic from Underscore.js
   // Discussion: https://stackoverflow.com/a/22482737/3038460
-  return obj === Object(obj) && !Array.isArray(a)
+  return ref === Object(ref) && !Array.isArray(ref)
 }
 
 function valueHasChanged(a, b) {
